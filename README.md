@@ -23,6 +23,10 @@ in non-human primates (NHPs) as acquired in the AGLO lab at the MPI for Biologic
 ## Data Structures
 ### Session Files
 
+### fMRI Data
+
+### E-Phys Data
+
 ## Data Formats
 
 ## Gordo
@@ -39,6 +43,7 @@ data. The example below outlines this process:
 ```python
 from pyMate.Gordo import MriProcessing
 
+
 subject_folder = r'c:\your\folder\structure\clyde_in_the_scanner'
 
 session_files = [
@@ -51,7 +56,7 @@ fmri = MriProcessing(session_files, subject_folder)
 After running the above code an HTML page will open in the systems default browser which gives an interactive view of 
 the statistical map on-top the mean EPI image. 
 
-To customize the analysis the following attributes ca be set:
+To customize the analysis the following attributes can be set:
 
 | Attribute      | Description | Default Value | Valid Values |
 |----------------|-------------|---------------|--------------|
@@ -77,12 +82,62 @@ fmri.subject_folder = subject_folder
 fmri.lets_go()
 ```
 
-This will run the analysis with a smoothing kernel of 6mm and without a mask image.
+This will run the analysis with a smoothing kernel of 6mm and with a mask image, so that a statistical map is 
+restricted to the brain.
 
 ### Visualizations
+TODO: 
+- PLOTTING OF DESIGN MATRIX
+- PLOTTING OF CONTRAST MATRIX
+- PLOTTING OF EXPECTED BOLD RESPONSE
 
 ## Clyde
 ![Clyde in a bar](/images/clyde.png "Clyde in a bar")
+### Basics
+
+### Visualizations
+
+#### Plot LFP time course and power spectrum
+```python
+from pyMate.Clyde import PrepareData
+
+
+signal = r'c:\your\folder\structure\ephys_data.h5'
+
+ephys_data = PrepareData(signal_filename=signal)
+ephys_data.plot_it()
+``` 
+
+#### Plot LFP time course and mark detected peaks based on frequency band
+```python
+from pyMate.Clyde import SignalProcessing
+
+
+channel = 1
+event_data = SignalProcessing(ephys_data)
+event_data.wheres_the_party()
+
+event_data.plot_peaks(channel)
+```
+
+#### Plot mean Time-Frequency Power Spectrum
+```python
+event_data.plot_mean_event_tfr(channel)
+```
+
+#### Plot Power Spectra of Detected Events
+```python
+event_data.plot_event_spectra(channel, xlim=[0, 200])
+```
+
+#### Plot Cluster Time-Frequency Power Spectrum and LFP traces
+```python
+event_data.plot_cluster(channel)
+```
 
 ## Zaius
 ![Zaius thinking](/images/zaius.png "Zaius thinking")
+### Bruker Data to Nifti format
+### DGZ files to csv
+### ADFX files to HDF5 
+### Matlab files to HDF5

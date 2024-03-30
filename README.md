@@ -2,7 +2,6 @@
 # pyMate: process (primate) fMRI and e-phys data
 
 ## What is it?
-
 **pyMate** is a Python package that provides basic functionalities to process functional magnetic resonance imaging (fMRI)
 and electro-physiological (e-phys) data.
 The tooling has a focus on the analysis of simultaneous fMRI and e-phys recordings
@@ -32,3 +31,4 @@ in non-human primates (NHPs) as acquired in the AGLO lab at the MPI for Biologic
 ![Clyde in a bar](/images/clyde.png "Clyde in a bar")
 
 ## Zaius
+![Zaius thinking](/images/zaius.png "Zaius thinking")

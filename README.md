@@ -29,5 +29,6 @@ in non-human primates (NHPs) as acquired in the AGLO lab at the MPI for Biologic
 ![Gordo in space](/images/gordo.png "Gordo in space")
 
 ## Clyde
+![Clyde in a bar](/images/clyde.png "Clyde in a bar")
 
 ## Zaius

@@ -1,0 +1,3 @@
+func_file,event_file,signal_file,info_file,stimulation,configuration,stim_site,stimulus
+EPI_NATUREX27P1.nii,CM033zJ1_027.csv,CM033zJ1_027.h5,CM033zJ1_027_mri_info.csv,"(4x2)x64, (blank x stim) x repeat","100Hz, 200us pulse",,450uA
+EPI_NATUREX28P1.nii,CM033zJ1_028.csv,CM033zJ1_028.h5,CM033zJ1_028_mri_info.csv,"(4x2)x64, (blank x stim) x repeat","100Hz, 200us pulse",,450uA

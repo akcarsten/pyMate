@@ -1,0 +1,22 @@
+FILE: findme.txt
+AUTH: Yusuke Murayama, MPI
+DATE: 22 Nov 2000
+INFO: Matlab interface for adf/adfw data
+
+0. Introduction
+  This directory contains mex DLLs to read adf/adfw file.  These programs can read both adf and adfw format.  If you need to read adfw format, just replace your adf_read.dll and adf_info.dll with these DLLs. You don't normally need to edit your matlab codes at all.
+./adf_info.dll : gets information about adf/adfw file
+./adf_read.dll : reads adf/adfw file
+
+1. Requirement
+  TargetOS: WindowsNT 4.0
+  Software: Matlab 5
+          : VC++ (if needed to recompile)
+
+2. Installation
+  Copy adf_info.dll and adf_read.dll to the directory which matlab can see.
+
+3. Usage
+  adf_xxxx is comatible with adf data both from QNX streamer and WinStreamer.   'adf_info' returns number of channels, number of observations and sampling rate.  Note sampt in msec.  'asf_read' reads waveform from the adffile.  Note obs and chan start from zero.  For example,
+  [nhan, nobs, sampt] = adf_info('adffile');
+  waveform = adf_read('adffile',obs,chan);

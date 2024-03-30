@@ -1,0 +1,13 @@
+bruker2nifti==1.0.4
+h5py
+idna==3.6
+matplotlib 
+nilearn==0.10.3
+numpy==1.26.3
+pandas==2.2.0
+parameterized 
+pyarrow==15.0.0
+pytest==8.1.1
+scikit-learn==1.4.0
+scipy==1.12.0
+tables==3.9.2

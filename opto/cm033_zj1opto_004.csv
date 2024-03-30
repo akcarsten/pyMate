@@ -1,0 +1,3 @@
+func_file,event_file,signal_file,info_file,stimulation,configuration,stim_site,stimulus
+EPI_NATUREX39P1.nii,CM033zJ1_039.csv,CM033zJ1_039.h5,CM033zJ1_039_mri_info.csv,"(4x2)x64, (blank x stim) x repeat","20Hz, 50ms pulse	",left AIC,
+EPI_NATUREX47P1.nii,CM033zJ1_047.csv,CM033zJ1_047.h5,CM033zJ1_047_mri_info.csv,"(4x2)x64, (blank x stim) x repeat","20Hz, 50ms pulse",left AIC,

@@ -1,0 +1,2 @@
+func_file,event_file,signal_file,info_file,stimulation,configuration,stim_site,stimulus
+EPI13_standardX17P1.nii,CM033zJ1_017.csv,CM033zJ1_017.h5,CM033zJ1_017_mri_info.csv,"(3x3)x16, (blank x stim) x repeat","20Hz, 50ms pulse",,

@@ -1,0 +1,8 @@
+func_file,event_file,signal_file,info_file,stimulation,configuration,stim_site,stimulus
+EPI_NATUREX65P1.nii,CM033zJ1_065.csv,CM033zJ1_065.h5,CM033zJ1_065_mri_info.csv,"(4x2)x64, (blank x stim) x repeat","100Hz, 200us pulse",,900uA
+EPI_NATUREX66P1.nii,CM033zJ1_066.csv,CM033zJ1_066.h5,CM033zJ1_066_mri_info.csv,"(4x2)x64, (blank x stim) x repeat","100Hz, 200us pulse",,900uA
+EPI_NATUREX68P1.nii,CM033zJ1_068.csv,CM033zJ1_068.h7,CM033zJ1_068_mri_info.csv,"(4x2)x64, (blank x stim) x repeat","100Hz, 200us pulse",,900uA
+EPI_NATUREX69P1.nii,CM033zJ1_069.csv,CM033zJ1_069.h8,CM033zJ1_069_mri_info.csv,"(4x2)x64, (blank x stim) x repeat","100Hz, 200us pulse",,900uA
+EPI_NATUREX70P1.nii,CM033zJ1_070.csv,CM033zJ1_070.h9,CM033zJ1_070_mri_info.csv,"(4x2)x64, (blank x stim) x repeat","100Hz, 200us pulse",,900uA
+EPI_NATUREX71P1.nii,CM033zJ1_071.csv,CM033zJ1_071.h10,CM033zJ1_071_mri_info.csv,"(4x2)x64, (blank x stim) x repeat","100Hz, 200us pulse",,900uA
+EPI_NATUREX72P1.nii,CM033zJ1_072.csv,CM033zJ1_072.h11,CM033zJ1_072_mri_info.csv,"(4x2)x64, (blank x stim) x repeat","100Hz, 200us pulse",,900uA

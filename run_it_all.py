@@ -1,7 +1,7 @@
 from pyMate.Gordo import MriProcessing
 
-root_folder = 'C:\\Users\\carst\\Google Drive\\05_Projects\\NET_fMRI\pyMate'
-subject_folder = 'C:\\Users\carst\\Google Drive\\05_Projects\\NET_fMRI\\data\\CM033.zJ1'
+root_folder = 'C:\\Users\\carst\\Google Drive\\05_Projects\\NET_fMRI\\pyMate'
+subject_folder = 'C:\\Users\\carst\\Google Drive\\05_Projects\\NET_fMRI\\data\\CM033.zJ1'
 
 micro_session_files = [
     f'{root_folder}\\micro\\cm033_zj1micro_010.csv',

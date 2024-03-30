@@ -137,7 +137,7 @@ event_data.plot_cluster(channel)
 
 ## Zaius
 ![Zaius thinking](/images/zaius.png "Zaius thinking")
-### Bruker Data to Nifti format
-### DGZ files to csv
-### ADFX files to HDF5 
-### Matlab files to HDF5
+#### Bruker Data to Nifti format
+#### DGZ files to csv
+#### ADFX files to HDF5 
+#### Matlab files to HDF5

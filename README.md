@@ -14,9 +14,9 @@ in non-human primates (NHPs) as acquired in the AGLO lab at the MPI for Biologic
 - [Data Formats](#data-formats)
 
 ## Main Features
-- **[Gordo](gordo)**: Toolkit to process fMRI data. Named after Gordo, a squirrel monkey, who traveled to space in 1958.
-- **[Clyde](clyde)**: Toolkit to process e-phys data. Named after Clyde, a character in Clint Eastwood movies, played by an Orangutan named Manis.
-- **[Zaius](zaius)** Various tools to convert fringe data formats into more common data structures. Named after Dr. Zaius, the minister of science in the Planet of the Apes movies.
+- **[Gordo](#gordo)**: Toolkit to process fMRI data. Named after Gordo, a squirrel monkey, who traveled to space in 1958.
+- **[Clyde](#clyde)**: Toolkit to process e-phys data. Named after Clyde, a character in Clint Eastwood movies, played by an Orangutan named Manis.
+- **[Zaius](#zaius)** Various tools to convert fringe data formats into more common data structures. Named after Dr. Zaius, the minister of science in the Planet of the Apes movies.
 
 ## Background
 

@@ -119,15 +119,78 @@ By fitting the design matrix to the fMRI data, researchers can estimate the cont
 condition to the observed brain activity and infer which brain regions are involved in processing different 
 cognitive tasks or stimuli.
 
+With the following command from Gordo you can visualize the design matrix:
 ```python
 fmri.plot_design_matrix()
 ```
 
 #### Plot the Contrast Matrix
+In fMRI (functional Magnetic Resonance Imaging) analysis, the contrast matrix is a crucial tool used to test specific 
+hypotheses about the effects of experimental conditions on brain activity. It is closely related to the design matrix 
+and is used within the framework of the general linear model (GLM).
+While the design matrix represents the experimental design and the relationship between experimental conditions and 
+observed fMRI data, the contrast matrix specifies the specific comparisons or contrasts of interest within the context 
+of the design matrix.
+
+Here's how the contrast matrix is typically structured and used:
+
+1. **Structure**: The contrast matrix is a mathematical matrix where each row represents a different contrast or 
+comparison of interest. The number of rows in the contrast matrix corresponds to the number of contrasts being tested. 
+Each contrast is specified by a set of weights assigned to the columns of the design matrix.
+2. **Weights**: The values in each row of the contrast matrix specify the weights assigned to each column of the 
+design matrix. These weights determine how much each condition contributes to the contrast being tested. Positive 
+weights indicate conditions that are expected to increase brain activity, while negative weights indicate conditions
+that are expected to decrease brain activity.
+3. **Interpretation**: Once the contrast matrix is defined, it is used to compute contrast images or contrast 
+estimates by multiplying it with the parameter estimates obtained from fitting the design matrix to the observed 
+fMRI data. These contrast images represent the specific patterns of brain activity associated with each contrast of 
+interest.
+4. **Hypothesis Testing**: The contrast images obtained from the contrast matrix are then used for statistical 
+inference to determine whether the observed patterns of brain activity are statistically significant. This is typically 
+done using methods such as t-tests or F-tests, which compare the contrast images to a null hypothesis of no effect.
+
+In summary, the contrast matrix in fMRI analysis allows researchers to specify and test specific hypotheses about the 
+effects of experimental conditions on brain activity by defining contrasts of interest within the framework of the 
+design matrix and the GLM. It provides a flexible and powerful tool for examining the neural correlates of different 
+cognitive tasks, stimuli, or experimental manipulations.
+
+With the following command from Gordo you can visualize the contrast matrix:
 ```python
 fmri.plot_contrast_matrix()
 ```
-#### Plot the Expected BOLD Response
+#### Plot the Expected BOLD Response for a single voxel
+The expected fMRI (functional Magnetic Resonance Imaging) response refers to the anticipated pattern of brain activity 
+observed in fMRI data in response to experimental stimuli or cognitive tasks. It's essential to understand that 
+fMRI measures changes in blood flow and oxygenation in the brain, known as the blood oxygen level-dependent 
+(BOLD) signal. These changes are associated with neural activity, primarily reflecting synaptic activity and the 
+metabolic demands of neurons.
+
+Several factors contribute to the expected fMRI response:
+
+1. **Hemodynamic Response Function (HRF)**: The HRF describes the relationship between neural activity and the 
+observed BOLD signal. It represents the time course of the hemodynamic changes that occur following neural 
+activation, including initial increases in blood flow and oxygenation followed by a gradual return to baseline. 
+The shape and timing of the HRF vary across brain regions and individuals but typically peak a few seconds after 
+the onset of neural activity.
+2. **Experimental Design**: The design of the fMRI experiment, including the timing and nature of the experimental 
+stimuli or tasks, influences the expected fMRI response. Different experimental paradigms elicit different patterns 
+of neural activity and corresponding changes in the BOLD signal. For example, visual stimulation may evoke activity in
+visual cortex regions, while auditory tasks may activate auditory cortex regions.
+3. **Modeling Cognitive Processes**: Researchers often develop hypotheses about the cognitive processes underlying 
+specific experimental manipulations. These hypotheses guide the interpretation of the expected fMRI response. 
+For instance, if a task involves working memory, researchers might expect increased activity in prefrontal cortex 
+regions associated with executive control and maintenance of information.
+4. **Contrast Effects**: The expected fMRI response may also depend on the specific contrasts or comparisons of 
+interest within the experimental design. Contrasts compare brain activity between different experimental conditions 
+or groups and are often used to test specific hypotheses. For example, a contrast might compare brain activity during 
+a task condition to a baseline or control condition to isolate the effects of interest.
+
+Overall, the expected fMRI response reflects the complex interplay between neural activity, hemodynamic changes, 
+experimental design, and cognitive processes. By understanding and modeling these factors, researchers can interpret 
+fMRI data to draw conclusions about the neural correlates of cognition, perception, behavior, and various
+mental processes.
+
+With the following command from Gordo you can visualize the expected BOLD response for a single voxel:
 ```python
 fmri.plot_expected_response()
 ```

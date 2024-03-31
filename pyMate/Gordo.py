@@ -1,6 +1,7 @@
 import os
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 from nilearn import image, plotting
 from nilearn.glm import threshold_stats_img
 from nilearn.glm.first_level import make_first_level_design_matrix, FirstLevelModel
@@ -217,7 +218,7 @@ class MriProcessing:
                                                 height_control="bonferroni",
                                                 cluster_threshold=10)
 
-    def view_activation_map(self):
+    def plot_activation_map(self):
         """
         View the activation map in a web browser.
 
@@ -237,6 +238,27 @@ class MriProcessing:
             title="Activation Map")
 
         html.open_in_browser()
+
+    def plot_contrast_matrix(self):
+        """
+        Plot the contrast matrix.
+
+        This method generates a visualization of the contrast matrix available for the analysis.
+        The contrast matrix represents the linear combination of the estimated effects
+        corresponding to the contrasts of interest. The plot provides a visual representation
+        of the contrast weights assigned to each effect in the design matrix.
+
+        Returns:
+            None
+        """
+        num_rows = len(self.contrasts)
+        fig, ax = plt.subplots(num_rows, 1, figsize=(15, 5))
+
+        for i, (contrast_id, contrast_val) in enumerate(self.contrasts.items()):
+            plotting.plot_contrast_matrix(contrast_val, design_matrix=self.design_matrices[0], ax=ax[i])
+            ax[i].set_title(contrast_id)
+
+        plt.tight_layout()
 
     def lets_go(self):
         """
@@ -260,4 +282,4 @@ class MriProcessing:
         if self.threshold is None:
             self.create_threshold()
 
-        self.view_activation_map()
+        self.plot_activation_map()

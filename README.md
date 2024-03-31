@@ -18,6 +18,8 @@ an AI image generator.
 - [Data Structures](#data-structures)
   - [fMRI Data](#fMRI-Data)
   - [E-Phys Data](#e-phys-data)
+  - [Meta Data](#meta-data)
+  - [Event Data](#event-data)
   - [Session Files](#session-files)
 - [Data Formats](#data-formats)
 
@@ -78,6 +80,15 @@ While it is not important where or how the Nifti files are stored it is recommen
 each scan is located in its owb sub-folder of the subject folder.
 
 ### E-Phys Data
+Electro-physiological (e-phys) data and other time series signals are stored in HDF5 format. The .h5 files contain two
+parts 1) the raw data and 2) the metadata. The raw data is stored in a dataset called 'data' and the metadata is 
+stored as attributes of the HDF5 file. Most importantly for the [Clyde](#clyde) framework to function seamlessly the 
+metadata must contain the parameter __sampling_rate__ which specifies the sampling rate of the data in Hz.
+There is no limit or other restrictions on metadata that can be stored in the HDF5 files.
+
+### Meta Data
+
+### Event Data
 
 ### Session Files
 

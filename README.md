@@ -90,7 +90,48 @@ fmri.lets_go()
 This will run the analysis with a smoothing kernel of 6mm and with a mask image, so that a statistical map is 
 restricted to the brain.
 
-### Visualizations
+### Concepts & Visualizations
+The analysis of the fMRI data that is followed by the Gordo code is based on the General Linear Model (GLM). A typical 
+approach to analyzing fMRI data. In the following the most important terms are explained and commands to visualize key 
+aspects with the Gordo framework are shown.
+
+#### The General Linear Model (GLM)
+The General Linear Model (GLM) is a statistical framework widely used in fMRI (functional Magnetic Resonance Imaging) 
+analysis to study the relationship between experimental stimuli or tasks and brain activity. It provides a flexible 
+and powerful approach for analyzing fMRI data by modeling the observed BOLD (Blood Oxygen Level Dependent) signal 
+as a linear combination of explanatory variables.
+
+Here's an explanation of the components and principles of the GLM in the context of fMRI analysis:
+
+1. **Design Matrix**: At the core of the GLM is the design matrix, also known as the design matrix or model matrix. 
+The design matrix encodes the experimental design and represents the relationship between the experimental conditions 
+or stimuli and the observed fMRI data. Each column of the design matrix corresponds to a different explanatory variable,
+typically representing experimental conditions, and each row corresponds to a different time point or sample in the 
+fMRI data. The values in the design matrix indicate the expected response of each voxel (3D pixel) in the brain for 
+each condition at each time point.
+2. **Parameter Estimation**: The GLM estimates parameters that quantify the relationship between the explanatory 
+variables in the design matrix and the observed fMRI data. This is typically done using methods such as ordinary 
+least squares (OLS) regression or its variants. The goal is to find the set of parameter estimates that best explains 
+the variability in the fMRI data given the design matrix.
+3. **Contrast Specification**: Once the parameters are estimated, researchers can specify contrasts of interest 
+within the GLM framework. Contrasts are linear combinations of the parameter estimates that test specific hypotheses 
+about the effects of experimental conditions on brain activity. For example, a contrast might compare brain activity 
+during one experimental condition to another or isolate the effects of interest relative to a baseline or 
+control condition.
+4. **Statistical Inference**: After specifying contrasts, statistical inference is performed to determine whether 
+the observed patterns of brain activity are statistically significant. This typically involves testing the contrast 
+estimates against a null hypothesis of no effect using methods such as t-tests or F-tests. Correcting for multiple 
+comparisons is essential to control for false positives in fMRI data analysis.
+5. **Model Assumptions**: The GLM makes several assumptions, including linearity, independence, 
+homoscedasticity (constant variance), and normality of errors. Violations of these assumptions can lead to biased 
+parameter estimates and incorrect statistical inferences.
+
+Overall, the GLM provides a flexible and widely used framework for analyzing fMRI data, allowing researchers to model 
+complex experimental designs, test specific hypotheses, and draw conclusions about the neural correlates of 
+cognition, perception, behavior, and various mental processes.
+
+A simple from scratch implementation in Python is 
+[described in this Medium article](https://medium.com/coinmonks/visualizing-brain-imaging-data-fmri-with-python-3e1899d1e212).
 
 #### Plot the Design Matrix
 In fMRI (functional Magnetic Resonance Imaging) analysis, the design matrix is a fundamental component used in 

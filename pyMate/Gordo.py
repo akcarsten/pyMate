@@ -239,6 +239,25 @@ class MriProcessing:
 
         html.open_in_browser()
 
+    def plot_design_matrix(self):
+        """
+        Plots the design matrix.
+
+        This method visualizes the design matrix associated with the fMRI data.
+        It creates a figure with a single subplot displaying the design matrix.
+
+        Returns:
+            None
+
+        Raises:
+            IndexError: If the design matrices list is empty.
+        """
+        fig, ax = plt.subplots(1, 1, figsize=(5, 15))
+
+        plotting.plot_design_matrix(self.design_matrices[0], ax=ax)
+        ax.set_title('Design Matrix')
+        plt.tight_layout()
+
     def plot_contrast_matrix(self):
         """
         Plot the contrast matrix.

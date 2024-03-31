@@ -7,6 +7,11 @@ and electro-physiological (e-phys) data.
 The tooling has a focus on the analysis of simultaneous fMRI and e-phys recordings
 in non-human primates (NHPs) as acquired in the AGLO lab at the MPI for Biological Cybernetics.
 
+**Disclaimer**: Parts of the code and documentation were created with the help of 
+[ChatGPT 3.5](https://chat.openai.com/), an AI language model.
+Images were generated with [Midjourney](https://www.midjourney.com/home), 
+an AI image generator.
+
 ## Table of Contents
 - [Main Features](#main-features)
 - [Background](#background)
@@ -88,6 +93,32 @@ restricted to the brain.
 ### Visualizations
 
 #### Plot the Design Matrix
+In fMRI (functional Magnetic Resonance Imaging) analysis, the design matrix is a fundamental component used in 
+statistical modeling to represent the experimental design and its relationship to the observed fMRI data. 
+It is a crucial part of the general linear model (GLM) framework, which is commonly used for analyzing fMRI data.
+The design matrix essentially encodes the experimental paradigm or task design in a matrix format. Each column of 
+the design matrix represents a specific condition or regressor in the experiment, while each row represents a 
+time point or sample in the fMRI data. The values in the matrix indicate the expected activity or response of 
+each voxel (3D pixel) in the brain for each condition at each time point.
+
+Here's a breakdown of the components of a typical design matrix:
+1. **Columns**: Each column corresponds to a different experimental condition or regressor. 
+For example, if an experiment involves presenting visual stimuli of faces and houses, there would be two columns 
+in the design matrix, one for faces and one for houses.
+2. **Rows**: Each row corresponds to a time point or sample in the fMRI data. 
+Typically, the fMRI data is divided into small time intervals called time bins or volumes. 
+Each row in the design matrix represents the expected neural activity for each condition at each time bin.
+3. **Values**: The values in the matrix represent the expected response of each voxel in the brain for each 
+condition at each time point. These values are typically derived from a hypothesized model of the 
+hemodynamic response function (HRF), which describes the relationship between neural activity and the 
+observed fMRI signal.
+
+The design matrix is used in conjunction with the observed fMRI data to perform statistical inference, 
+typically through methods such as ordinary least squares (OLS) regression or its variants. 
+By fitting the design matrix to the fMRI data, researchers can estimate the contribution of each experimental 
+condition to the observed brain activity and infer which brain regions are involved in processing different 
+cognitive tasks or stimuli.
+
 ```python
 fmri.plot_design_matrix()
 ```

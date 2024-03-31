@@ -16,7 +16,31 @@ an AI image generator.
 - [Main Features](#main-features)
 - [Background](#background)
 - [Data Structures](#data-structures)
+  - [fMRI Data](#fMRI-Data)
+  - [E-Phys Data](#e-phys-data)
+  - [Session Files](#session-files)
 - [Data Formats](#data-formats)
+
+- [Gordo](#[gordo])
+  - [Basics](#basics)
+  - [Concepts & Visualizations](#concepts-&-visualizations)
+    - [The General Linear Model (GLM)](#the-general-linear-model-(glm))
+    - [The Design Matrix](#the-design-matrix)
+    - [The Contrast Matrix](#the-contrast-matrix)
+    - [The Expected BOLD Response for a single voxel](#the-expected-bold-response-for-a-single-voxel)
+- [Clyde](#clyde)
+  - [Basics](#basics)
+  - [Visualizations](#visualizations)
+    - [Plot LFP time course and power spectrum](#plot-lfp-time-course-and-power-spectrum)
+    - [Plot LFP Time Course and Mark Detected Peaks](#plot-lfp-time-course-and-mark-detected-peaks)
+    - [Plot mean Time-Frequency Power Spectrum](#plot-mean-time-frequency-power-spectrum)
+    - [Plot Power Spectra of Detected Events](#plot-power-spectra-of-detected-events)
+    - [Plot Cluster Time-Frequency Power Spectrum and LFP traces](#plot-cluster-time-frequency-power-spectrum-and-lfp-traces)
+- [Zaius](#zaius)
+  - [Bruker Data to Nifti format](#bruker-data-to-nifti-format)
+  - [DGZ files to csv](#dgz-files-to-csv)
+  - [ADFX files to HDF5](#adfx-files-to-hdf5)
+  - [Matlab files to HDF5](#matlab-files-to-hdf5)
 
 ## Main Features
 - **[Gordo](#gordo)**: Toolkit to process fMRI data. Named after Gordo, a squirrel monkey, who traveled to space in 1958.
@@ -133,7 +157,7 @@ cognition, perception, behavior, and various mental processes.
 A simple from scratch implementation in Python is 
 [described in this Medium article](https://medium.com/coinmonks/visualizing-brain-imaging-data-fmri-with-python-3e1899d1e212).
 
-#### Plot the Design Matrix
+#### The Design Matrix
 In fMRI (functional Magnetic Resonance Imaging) analysis, the design matrix is a fundamental component used in 
 statistical modeling to represent the experimental design and its relationship to the observed fMRI data. 
 It is a crucial part of the general linear model (GLM) framework, which is commonly used for analyzing fMRI data.
@@ -166,7 +190,7 @@ fmri.plot_design_matrix()
 ```
 ![Design Matrix](/images/design_matrix.png "Design Matrix")
 
-#### Plot the Contrast Matrix
+#### The Contrast Matrix
 In fMRI (functional Magnetic Resonance Imaging) analysis, the contrast matrix is a crucial tool used to test specific 
 hypotheses about the effects of experimental conditions on brain activity. It is closely related to the design matrix 
 and is used within the framework of the general linear model (GLM).
@@ -202,7 +226,7 @@ fmri.plot_contrast_matrix()
 ```
 ![Contrast Matrix](/images/contrast_matrix.png "Contrast Matrix")
 
-#### Plot the Expected BOLD Response for a single voxel
+#### The Expected BOLD Response for a single voxel
 The expected fMRI (functional Magnetic Resonance Imaging) response refers to the anticipated pattern of brain activity 
 observed in fMRI data in response to experimental stimuli or cognitive tasks. It's essential to understand that 
 fMRI measures changes in blood flow and oxygenation in the brain, known as the blood oxygen level-dependent 

@@ -86,8 +86,12 @@ This will run the analysis with a smoothing kernel of 6mm and with a mask image,
 restricted to the brain.
 
 ### Visualizations
-TODO: 
-- PLOTTING OF DESIGN MATRIX
+
+#### Plot the Design Matrix
+```python
+fmri.plot_design_matrix()
+```
+
 #### Plot the Contrast Matrix
 ```python
 fmri.plot_contrast_matrix()

@@ -279,6 +279,25 @@ class MriProcessing:
 
         plt.tight_layout()
 
+    def plot_expected_response(self):
+        """
+        Plot the expected response.
+
+        This method visualizes the expected response based on the design matrix
+        and the estimated effects for each condition. It creates a figure with a single
+        subplot displaying the expected response.
+
+        Returns:
+            None
+        """
+        fig, ax = plt.subplots(1, 1, figsize=(15, 5))
+
+        ax.plot(self.design_matrices[0]['active'])
+        ax.set_xlabel("scan")
+        ax.set_ylabel("amplitude [arbitrary unit]")
+        ax.set_title("Expected Response")
+        plt.tight_layout()
+
     def lets_go(self):
         """
         Process an FMRI session from start to finish. If attributes are not changed all analysis will be performed

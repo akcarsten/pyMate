@@ -96,7 +96,10 @@ fmri.plot_design_matrix()
 ```python
 fmri.plot_contrast_matrix()
 ```
-- PLOTTING OF EXPECTED BOLD RESPONSE
+#### Plot the Expected BOLD Response
+```python
+fmri.plot_expected_response()
+```
 
 ## Clyde
 ![Clyde in a bar](/images/clyde.png "Clyde in a bar")

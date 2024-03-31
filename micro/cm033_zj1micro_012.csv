@@ -1,4 +1,0 @@
-func_file,event_file,signal_file,info_file,stimulation,configuration,stim_site,stimulus
-EPI_NATUREX78P1.nii,CM033zJ1_078.csv,CM033zJ1_078.h5,CM033zJ1_078_mri_info.csv,"(4x2)x64, (blank x stim) x repeat","100Hz, 200us pulse",,1000uA
-EPI_NATUREX79P1.nii,CM033zJ1_079.csv,CM033zJ1_079.h5,CM033zJ1_079_mri_info.csv,"(4x2)x64, (blank x stim) x repeat","100Hz, 200us pulse",,1000uA
-EPI_NATUREX80P1.nii,CM033zJ1_080.csv,CM033zJ1_080.h5,CM033zJ1_080_mri_info.csv,"(4x2)x64, (blank x stim) x repeat","100Hz, 200us pulse",,1000uA

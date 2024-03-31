@@ -1,3 +1,0 @@
-func_file,event_file,signal_file,info_file,stimulation,configuration,stim_site,stimulus
-EPI_1_5mmisoX45P1.nii,CM033zJ1_045.csv,CM033zJ1_045.h5,CM033zJ1_045_mri_info.csv,"(12x6)x64, (blank x stim) x repeat","20Hz, 50ms pulse	",,
-EPI_1_5mmisoX46P1.nii,CM033zJ1_046.csv,CM033zJ1_046.h5,CM033zJ1_046_mri_info.csv,"(12x6)x64, (blank x stim) x repeat","20Hz, 50ms pulse",,

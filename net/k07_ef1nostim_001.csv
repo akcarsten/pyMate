@@ -1,2 +1,0 @@
-func_file,event_file,signal_file,info_file,stimulation,configuration,stim_site,stimulus
-K07.Ef1_13.nii.gz,events.csv,k07ef1_0001_cln.h5,K07Ef1_001_mri_info.csv,(blank) x repeat,,,

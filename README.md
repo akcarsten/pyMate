@@ -76,17 +76,28 @@ that may not be optimal... but it works. **Ideas for different concepts are appr
 ### fMRI Data
 The fMRI data is the easiest data to handle as it adheres to the Nifti format. The main challenge might be to convert 
 the data from the Bruker format to Nifti. The [Zaius](#zaius) module provides tools to do this. 
+
 While it is not important where or how the Nifti files are stored it is recommended to keep a folder structure where
 each scan is located in its owb sub-folder of the subject folder.
 
 ### E-Phys Data
 Electro-physiological (e-phys) data and other time series signals are stored in HDF5 format. The .h5 files contain two
-parts 1) the raw data and 2) the metadata. The raw data is stored in a dataset called 'data' and the metadata is 
+parts _1)_ the raw data and _2)_ the metadata. The raw data is stored in a dataset called 'data' and the metadata is 
 stored as attributes of the HDF5 file. Most importantly for the [Clyde](#clyde) framework to function seamlessly the 
-metadata must contain the parameter __sampling_rate__ which specifies the sampling rate of the data in Hz.
+metadata must contain the parameter _sampling_rate_ which specifies the sampling rate of the data in Hz.
 There is no limit or other restrictions on metadata that can be stored in the HDF5 files.
 
+If the e-phys data was recorded together with fMRI data the .h5 files should be stored in the same folder as the Nifti
+fMRI files.
+
 ### Meta Data
+Other critical metadata about the experiment is stored in a CSV file. These files contain information about the fMRI and 
+e-phys data and link both worlds together. The most important information, which cannot be found in any of the other 
+files, is the _inter volume time_ (-InterVolumeTime (ms)). This parameter is crucial for the correct interpretation 
+of the fMRI data.
+
+The existence of this file is due to the origin of the data. In the original raw data this information was stored in the
+_dgz_ files. The [Zaius](#zaius) module provides tools to convert these files into CSV files.
 
 ### Event Data
 

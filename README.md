@@ -123,6 +123,7 @@ With the following command from Gordo you can visualize the design matrix:
 ```python
 fmri.plot_design_matrix()
 ```
+![Design Matrix](/images/design_matrix.png "Design Matrix")
 
 #### Plot the Contrast Matrix
 In fMRI (functional Magnetic Resonance Imaging) analysis, the contrast matrix is a crucial tool used to test specific 
@@ -158,6 +159,8 @@ With the following command from Gordo you can visualize the contrast matrix:
 ```python
 fmri.plot_contrast_matrix()
 ```
+![Contrast Matrix](/images/contrast_matrix.png "Contrast Matrix")
+
 #### Plot the Expected BOLD Response for a single voxel
 The expected fMRI (functional Magnetic Resonance Imaging) response refers to the anticipated pattern of brain activity 
 observed in fMRI data in response to experimental stimuli or cognitive tasks. It's essential to understand that 
@@ -194,6 +197,7 @@ With the following command from Gordo you can visualize the expected BOLD respon
 ```python
 fmri.plot_expected_response()
 ```
+![Expected BOLD response](/images/expected_response.png "Expected BOLD response")
 
 ## Clyde
 ![Clyde in a bar](/images/clyde.png "Clyde in a bar")

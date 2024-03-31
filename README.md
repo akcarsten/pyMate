@@ -88,7 +88,10 @@ restricted to the brain.
 ### Visualizations
 TODO: 
 - PLOTTING OF DESIGN MATRIX
-- PLOTTING OF CONTRAST MATRIX
+#### Plot the Contrast Matrix
+```python
+fmri.plot_contrast_matrix()
+```
 - PLOTTING OF EXPECTED BOLD RESPONSE
 
 ## Clyde
@@ -108,7 +111,7 @@ ephys_data = PrepareData(signal_filename=signal)
 ephys_data.plot_it()
 ``` 
 
-#### Plot LFP time course and mark detected peaks based on frequency band
+#### Plot LFP Time Course and Mark Detected Peaks
 ```python
 from pyMate.Clyde import SignalProcessing
 

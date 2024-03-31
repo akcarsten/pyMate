@@ -51,23 +51,35 @@ Dr. Zaius, the minister of science in the Planet of the Apes movies.
 
 ## Background
 The pyMate package was developed to facilitate the analysis of fMRI and e-phys data recorded from non-human primates.
-The package consists of three main modules: Gordo, Clyde, and Zaius. Each module provides tools to process and analyze
-different aspects of the simultaneously recorded fMRI and e-phys data. While this is the original purpose of the package,
-the tools can also be used separately to only process fMRI or e-phys data.
+The package consists of three main modules: [Gordo](#gordo), [Clyde](#clyde), and [Zaius](#zaius). Each module provides 
+tools to process and analyze different aspects of the simultaneously recorded fMRI and e-phys data. While this is the 
+original purpose of the package, the tools can also be used separately to only process fMRI or e-phys data.
 
-The Zaius module however is not designed for data analysis but is a collection of tools to convert between data formats.
-Due to the heterogeneity of data formats not all the code in the Zaius module is written in Python. Re-write it in 
+The [Zaius](#zaius) module however is not designed for data analysis but is a collection of tools to convert between data formats.
+Due to the heterogeneity of data formats not all the code in the [Zaius](#zaius) module is written in Python. Re-write it in 
 Python if you feel like it and push it here ;)
+
+## Data Formats
+The pyMate package relies on various data formats for fMRI and e-phys data. The main data formats are:
+- **fMRI Data**: Nifti format
+- **E-Phys Data**: HDF5 format
+- **Session Files**: CSV format
+In the following the data formats and how to structure them is explained in more detail.
+
 ## Data Structures
 ![Data Structures](/images/data_structures.png "Data Structures")
+Handling the various data formats for the fMRI and e-phys data is challenging. The pyMate package relies on a structure
+that may not be optimal... but it works. **Ideas for different concepts are appreciated**.
 
 ### fMRI Data
+The fMRI data is the easiest data to handle as it adheres to the Nifti format. The main challenge might be to convert 
+the data from the Bruker format to Nifti. The [Zaius](#zaius) module provides tools to do this. 
+While it is not important where or how the Nifti files are stored it is recommended to keep a folder structure where
+each scan is located in its owb sub-folder of the subject folder.
 
 ### E-Phys Data
 
 ### Session Files
-
-## Data Formats
 
 ## Gordo
 ![Gordo in space](/images/gordo.png "Gordo in space")

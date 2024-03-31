@@ -115,6 +115,20 @@ In case of a _neural event triggered fMRI_ (net-fMRI) experiment the event data 
 The event data file is stored in the same folder as the fMRI and e-phys data.
 
 ### Session Files
+The session files are also CSV files. However, they are not located together with the fMRI and e-phys data. They are 
+the glue that ties different scans and subjects together and provides additional information about the experiment.
+The core paramters (columns) in the CSV file are as follows:
+
+| Parameter     | Description                                                                                                                 |
+|---------------|-----------------------------------------------------------------------------------------------------------------------------|
+| func_file     | Filename and path relative to the subject folder that contains the functional imaging file (nifti file wirth EPI sequence)  |
+| event_file    | Filename and path relative to the subject folder that contains the event file                                               |
+| signal_file   | Filename and path relative to the subject folder that contains the electrophysiological data (.h5 file)                     |
+| info_file     | Filename and path relative to the subject folder that contains the metadata file (csv file)                                 |
+| stimulation   | For information only: Describes the stimulation paradigm e.g. (4x2)x64, (blank x stim) x repeat                             |
+| configuration | For information only: Describes additional experimental configurations. e.g. stimulus intensity                             |
+| stim_site     | For information only: Describes the site of stimulation e.g. left anterior insular in case of direct electrical simulation  |
+| stimulus      | For information only: Describes additional stimulus parameters e.g. current used for direct electrical stimulation          |
 
 ## Gordo
 ![Gordo in space](/images/gordo.png "Gordo in space")

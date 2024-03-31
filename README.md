@@ -2,8 +2,8 @@
 # pyMate: process (primate) fMRI and e-phys data
 
 ## What is it?
-**pyMate** is a Python package that provides basic functionalities to process functional magnetic resonance imaging (fMRI)
-and electro-physiological (e-phys) data.
+**pyMate** is a Python package that provides basic functionalities to process 
+functional magnetic resonance imaging (fMRI) and electro-physiological (e-phys) data.
 The tooling has a focus on the analysis of simultaneous fMRI and e-phys recordings
 in non-human primates (NHPs) as acquired in the AGLO lab at the MPI for Biological Cybernetics.
 
@@ -44,17 +44,28 @@ an AI image generator.
 
 ## Main Features
 - **[Gordo](#gordo)**: Toolkit to process fMRI data. Named after Gordo, a squirrel monkey, who traveled to space in 1958.
-- **[Clyde](#clyde)**: Toolkit to process e-phys data. Named after Clyde, a character in Clint Eastwood movies, played by an Orangutan named Manis.
-- **[Zaius](#zaius)** Various tools to convert fringe data formats into more common data structures. Named after Dr. Zaius, the minister of science in the Planet of the Apes movies.
+- **[Clyde](#clyde)**: Toolkit to process e-phys data. Named after Clyde, a character in Clint Eastwood movies, played 
+by an Orangutan named Manis.
+- **[Zaius](#zaius)** Various tools to convert fringe data formats into more common data structures. Named after 
+Dr. Zaius, the minister of science in the Planet of the Apes movies.
 
 ## Background
+The pyMate package was developed to facilitate the analysis of fMRI and e-phys data recorded from non-human primates.
+The package consists of three main modules: Gordo, Clyde, and Zaius. Each module provides tools to process and analyze
+different aspects of the simultaneously recorded fMRI and e-phys data. While this is the original purpose of the package,
+the tools can also be used separately to only process fMRI or e-phys data.
 
+The Zaius module however is not designed for data analysis but is a collection of tools to convert between data formats.
+Due to the heterogeneity of data formats not all the code in the Zaius module is written in Python. Re-write it in 
+Python if you feel like it and push it here ;)
 ## Data Structures
-### Session Files
+![Data Structures](/images/data_structures.png "Data Structures")
 
 ### fMRI Data
 
 ### E-Phys Data
+
+### Session Files
 
 ## Data Formats
 

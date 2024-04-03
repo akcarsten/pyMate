@@ -1,3 +1,4 @@
+import os
 from bruker2nifti.converter import Bruker2Nifti
 
 """
@@ -31,20 +32,41 @@ class ConvertBruker:
         self.study_folder = study_folder
         self.target_folder = target_folder
         self.study_name = study_name
-        self.bru = self.load_study()
+        self.bru = self.initiate_study()
 
-    def load_study(self):
+    def initiate_study(self):
         """
-        Loads the Bruker MRI study for conversion.
+        Initializes the Bruker2Nifti converter for the Bruker MRI study, preparing it for conversion.
 
-        This method initializes the Bruker2Nifti converter with the provided study folder, target folder, and study name.
+        This method creates the target folder for the converted files if it does not already exist.
+
+        Returns:
+            Bruker2Nifti: A Bruker2Nifti converter object configured with the study folder, target folder,
+            and study name.
         """
+
+        if os.path.isdir(self.target_folder) == False:
+            os.makedirs(self.target_folder, exist_ok=True)
+
         return Bruker2Nifti(self.study_folder, self.target_folder, study_name=self.study_name)
 
     def convert_2_nifti(self) -> None:
         """
         Converts the loaded Bruker MRI study to NIFTI format and saves the converted files.
 
-        This method calls the 'convert' method of the Bruker2Nifti instance to perform the conversion.
+        The configuration of the conversion is defined in the code. For more details visit:
+        https://github.com/SebastianoF/bruker2nifti/wiki/Example:-use-bruker2nifti-in-a-python-(Ipython)-session
         """
+
+        self.bru.verbose = 1
+        self.bru.correct_slope = True
+        self.bru.get_acqp = True
+        self.bru.get_method = True
+        self.bru.get_reco = True
+        self.bru.nifti_version = 1
+        self.bru.qform_code = 1
+        self.bru.sform_code = 2
+        self.bru.save_human_readable = True
+        self.bru.save_b0_if_dwi = True
+
         self.bru.convert()

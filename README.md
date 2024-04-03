@@ -395,8 +395,6 @@ The [source code is available on GitHub](https://github.com/neurolabusc/Bru2Nii?
 and a graphical user interface to convert Bruker data to Nifti format. The package is currently actively maintained. 
 The [Zaius](#zaius) module provides a wrapper function to use this package.
 
-```python
-
 #### DGZ files to csv
 #### ADFX files to HDF5 
 #### Matlab files to HDF5

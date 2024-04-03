@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="real_pymate",
-    version="1.0.1",
+    version="1.0.2",
     url="https://github.com/akcarsten/pyMate",
     author="Carsten Klein",
     description="Framework to process primate fMRI and electrophysiological data",

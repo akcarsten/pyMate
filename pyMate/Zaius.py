@@ -1,5 +1,11 @@
 from bruker2nifti.converter import Bruker2Nifti
 
+"""
+Python module to convert fMRI  and electro-physiological data into standard data formats.
+
+The module is named after Zaius,, the minister of science in the Planet of the Apes movies. 
+- Reference: https://en.wikipedia.org/wiki/List_of_Planet_of_the_Apes_characters
+"""
 
 class ConvertBruker:
     """
@@ -7,6 +13,7 @@ class ConvertBruker:
 
     Args:
         study_folder (str): Path to the folder containing the Bruker MRI data.
+                            The folder should contain the 'subject' folder.
         target_folder (str): Path to the folder where the converted NIFTI files will be saved.
         study_name (str): Name of the MRI study.
 
@@ -24,7 +31,7 @@ class ConvertBruker:
         self.study_folder = study_folder
         self.target_folder = target_folder
         self.study_name = study_name
-        self.bru = None
+        self.bru = self.load_study()
 
     def load_study(self):
         """
@@ -32,7 +39,7 @@ class ConvertBruker:
 
         This method initializes the Bruker2Nifti converter with the provided study folder, target folder, and study name.
         """
-        self.bru = Bruker2Nifti(self.study_folder, self.target_folder, study_name=self.study_name)
+        return Bruker2Nifti(self.study_folder, self.target_folder, study_name=self.study_name)
 
     def convert_2_nifti(self) -> None:
         """

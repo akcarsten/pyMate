@@ -148,7 +148,7 @@ from pyMate.Gordo import MriProcessing
 subject_folder = r'c:\your\folder\structure\clyde_in_the_scanner'
 
 session_files = [
-    r'c:\your\folder\structure\session_file_001.csv',
+    r'c:\your\\folder\structure\session_file_001.csv',
     r'c:\your\folder\structure\session_file_002.csv']
 
 fmri = MriProcessing(session_files, subject_folder)
@@ -394,6 +394,22 @@ The [source code is available on GitHub](https://github.com/neurolabusc/Bru2Nii?
 2) **[Bruker2nifti](https://github.com/SebastianoF/bruker2nifti)**: Is Python package that also provides a command line
 and a graphical user interface to convert Bruker data to Nifti format. The package is currently actively maintained. 
 The [Zaius](#zaius) module provides a wrapper function to use this package.
+
+The following otlines the intended usage:
+```python
+from pyMate.Zaius import ConvertBruker
+
+
+study_folder = r'c:\your\folder\structure\great_study\great_subject'
+target_folder = r'c:\your\folder\structure\great_study\converted_data'
+study_name = 'CM032.Aw1'
+
+bru2nifti = ConvertBruker(study_folder=study_folder,
+                          target_folder=target_folder,
+                          study_name=study_name)
+
+bru2nifti.convert_2_nifti()
+```
 
 #### DGZ files to csv
 #### ADFX files to HDF5 

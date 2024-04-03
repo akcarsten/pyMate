@@ -383,6 +383,20 @@ event_data.plot_cluster(channel)
 ## Zaius
 ![Zaius thinking](/images/zaius.png "Zaius thinking")
 #### Bruker Data to Nifti format
+Research scanners often store fMRI data in proprietary formats. One such format is the Bruker data format. 
+To import such data into standard tooling it is advisable to convert the data into common data formats like the 
+Nifti format. The [Zaius](#zaius) module provides tools to do this conversion. Ther are two tools available:
+
+1) **[Bru2Nii](https://github.com/neurolabusc/Bru2Nii/releases)**: Provides a graphical user interface to convert 
+Bruker data to Nifti format. However, the package is no longer maintained and might not be able to convert 
+all Bruker data formats. 
+The [source code is available on GitHub](https://github.com/neurolabusc/Bru2Nii?tab=readme-ov-file).
+2) **[Bruker2nifti](https://github.com/SebastianoF/bruker2nifti)**: Is Python package that also provides a command line
+and a graphical user interface to convert Bruker data to Nifti format. The package is currently actively maintained. 
+The [Zaius](#zaius) module provides a wrapper function to use this package.
+
+```python
+
 #### DGZ files to csv
 #### ADFX files to HDF5 
 #### Matlab files to HDF5

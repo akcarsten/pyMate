@@ -410,7 +410,7 @@ from pyMate.Zaius import ConvertBruker
 
 study_folder = r'c:\your\folder\structure\great_study\great_subject'
 target_folder = r'c:\your\folder\structure\great_study\converted_data'
-study_name = 'CM032.Aw1'
+study_name = 'great_study'
 
 bru2nifti = ConvertBruker(study_folder=study_folder,
                           target_folder=target_folder,

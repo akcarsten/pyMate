@@ -14,6 +14,7 @@ an AI image generator.
 
 ## Table of Contents
 - [Main Features](#main-features)
+- [Where to get it](#where-to-get-it)
 - [Background](#background)
 - [Data Structures](#data-structures)
   - [fMRI Data](#fMRI-Data)
@@ -50,6 +51,13 @@ an AI image generator.
 by an Orangutan named Manis.
 - **[Zaius](#zaius)** Various tools to convert fringe data formats into more common data structures. Named after 
 Dr. Zaius, the minister of science in the Planet of the Apes movies.
+
+## Where to get it
+The source code is currently hosted on GitHub at: https://github.com/akcarsten/pyMate
+
+```Python
+pip install real_pymate
+```
 
 ## Background
 The pyMate package was developed to facilitate the analysis of fMRI and e-phys data recorded from non-human primates.

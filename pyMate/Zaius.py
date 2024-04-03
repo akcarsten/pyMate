@@ -1,7 +1,7 @@
 from bruker2nifti.converter import Bruker2Nifti
 
 
-class CON2NIFTI:
+class ConvertBruker:
     """
     Class to convert Bruker MRI data into NIFTI format.
 

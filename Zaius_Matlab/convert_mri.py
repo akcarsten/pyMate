@@ -1,4 +1,4 @@
-from ConvertBru import CON2NIFTI
+from pyMate.Zaius import CON2NIFTI
 
 
 study_folder =

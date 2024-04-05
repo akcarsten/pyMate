@@ -77,7 +77,7 @@ class ConvertBruker:
 class ConvertMatFile:
     """Converts Matlab files to HDF5 format and verifies the conversion."""
 
-    def __init__(self, filename, target_folder):
+    def __init__(self, mat_file_folder, target_folder):
         """
         Initializes the ConvertMatFile class with the given filename.
 
@@ -85,20 +85,25 @@ class ConvertMatFile:
         - filename: A string containing the path to the input Matlab file.
         - target_folder: A string containing the path to the output path.
         """
-        self.filename = filename
+        self.mat_file_folder = mat_file_folder
         self.target_folder = target_folder
+        self.mat_files = None
+        self.filename = None
         self.h5_filename = None
         self.data = None
         self.header = None
 
-    def convert(self):
+    def find_mat_files(self):
         """
-        Converts the ADFX file to HDF5 format and verifies the conversion.
+        Finds all Matlab files in the given folder.
         """
-        self.read_mat()
-        self.construct_output_filename()
-        self.save_as_h5()
-        self.verify_result()
+        mat_files = []
+        for root, dirs, files in os.walk(self.mat_file_folder):
+            for file in files:
+                if file.endswith('.mat'):
+                    mat_files.append(os.path.join(root, file))
+
+        self.mat_files = mat_files
 
     def read_mat(self):
         """
@@ -141,3 +146,16 @@ class ConvertMatFile:
             h5file.create_dataset('/data', data=self.data)
             for key, value in self.header.items():
                 h5file.attrs[key] = value
+
+    def convert(self):
+        """
+        Converts the ADFX file to HDF5 format and verifies the conversion.
+        """
+        self.find_mat_files()
+
+        for mat_file in self.mat_files:
+            self.filename = mat_file
+            self.read_mat()
+            self.construct_output_filename()
+            self.save_as_h5()
+            self.verify_result()

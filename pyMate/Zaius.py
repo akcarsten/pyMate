@@ -1,4 +1,5 @@
 import os
+import h5py
 from bruker2nifti.converter import Bruker2Nifti
 
 """
@@ -7,6 +8,7 @@ Python module to convert fMRI  and electro-physiological data into standard data
 The module is named after Zaius,, the minister of science in the Planet of the Apes movies. 
 - Reference: https://en.wikipedia.org/wiki/List_of_Planet_of_the_Apes_characters
 """
+
 
 class ConvertBruker:
     """
@@ -70,3 +72,72 @@ class ConvertBruker:
         self.bru.save_b0_if_dwi = True
 
         self.bru.convert()
+
+
+class ConvertMatFile:
+    """Converts Matlab files to HDF5 format and verifies the conversion."""
+
+    def __init__(self, filename, target_folder):
+        """
+        Initializes the ConvertMatFile class with the given filename.
+
+        Parameters:
+        - filename: A string containing the path to the input Matlab file.
+        - target_folder: A string containing the path to the output path.
+        """
+        self.filename = filename
+        self.target_folder = target_folder
+        self.h5_filename = None
+        self.data = None
+        self.header = None
+
+    def convert(self):
+        """
+        Converts the ADFX file to HDF5 format and verifies the conversion.
+        """
+        self.read_mat()
+        self.construct_output_filename()
+        self.save_as_h5()
+        self.verify_result()
+
+    def read_mat(self):
+        """
+        Reads the Matlab file and extracts data and header information.
+        """
+        with h5py.File(self.filename, 'r') as f:
+            data = f['Cln']
+            sampling_rate = 1 / data['dx'][()]
+            header = {'sampling_rate': sampling_rate}
+            data = data['dat'][()]
+
+        self.data = data
+        self.header = header
+
+    def verify_result(self):
+        """
+        Verifies the correctness of the conversion by comparing the saved HDF5 file with the original data.
+        """
+        with h5py.File(self.h5_filename, 'r') as h5:
+            h5_data = h5['data'][()]
+        if not (h5_data == self.data).all():
+            raise ValueError("Conversion failed. Input does not match output.")
+
+    def construct_output_filename(self):
+        """
+        Constructs the output HDF5 filename based on the input ADFX filename.
+        """
+        data_path = self.filename.split(os.path.sep)
+
+        if not os.path.exists(self.target_folder):
+            os.makedirs(self.target_folder)
+
+        self.h5_filename = os.path.join(self.target_folder, os.path.splitext(data_path[-1])[0] + '.h5')
+
+    def save_as_h5(self):
+        """
+        Saves data and header as an HDF5 file.
+        """
+        with h5py.File(self.h5_filename, 'w') as h5file:
+            h5file.create_dataset('/data', data=self.data)
+            for key, value in self.header.items():
+                h5file.attrs[key] = value

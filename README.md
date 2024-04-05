@@ -41,9 +41,9 @@ an AI image generator.
     - [Plot Cluster Time-Frequency Power Spectrum and LFP traces](#plot-cluster-time-frequency-power-spectrum-and-lfp-traces)
 - [Zaius](#zaius)
   - [Bruker Data to Nifti format](#bruker-data-to-nifti-format)
+  - [Matlab files to HDF5](#matlab-files-to-hdf5)
   - [DGZ files to csv](#dgz-files-to-csv)
   - [ADFX files to HDF5](#adfx-files-to-hdf5)
-  - [Matlab files to HDF5](#matlab-files-to-hdf5)
 
 ## Main Features
 - **[Gordo](#gordo)**: Toolkit to process fMRI data. Named after Gordo, a squirrel monkey, who traveled to space in 1958.
@@ -403,7 +403,7 @@ The [source code is available on GitHub](https://github.com/neurolabusc/Bru2Nii?
 and a graphical user interface to convert Bruker data to Nifti format. The package is currently actively maintained. 
 The [Zaius](#zaius) module provides a wrapper function to use this package.
 
-The following otlines the intended usage:
+The following outlines the intended usage:
 ```python
 from pyMate.Zaius import ConvertBruker
 
@@ -419,6 +419,23 @@ bru2nifti = ConvertBruker(study_folder=study_folder,
 bru2nifti.convert_2_nifti()
 ```
 
+#### Matlab files to HDF5
+Electro-physiological data that is acquired parallel to fMRI data contains large artifacts. Typically this data was
+cleaned with a default Matlab toolbox from the AGLO lab. Therefore the output format is a .mat file. To enable  working
+with this cleaned data in Python the [Zaius](#zaius) module provides the _ConvertMatFile_ class which converts these
+Matlab files into the HDF5 format.
+
+The following outlines the intended usage:
+```Python
+from pyMate.Zaius import ConvertMatFile
+
+
+mat_file_folder = r'D:\cleaned\matlab\ephys\data'
+target_folder = r'C:\lets\store\the\converted\data\here'
+
+converter = ConvertMatFile(mat_file_folder, target_folder)
+converter.convert()
+```
+
 #### DGZ files to csv
 #### ADFX files to HDF5 
-#### Matlab files to HDF5

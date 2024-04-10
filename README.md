@@ -160,6 +160,7 @@ session_files = [
     r'c:\your\folder\structure\session_file_002.csv']
 
 fmri = MriProcessing(session_files, subject_folder)
+fmri.lets_go()
 ```
 
 After running the above code an HTML page will open in the systems default browser which gives an interactive view of 

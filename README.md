@@ -24,7 +24,7 @@ an AI image generator.
   - [Session Files](#session-files)
 - [Data Formats](#data-formats)
 
-- [Gordo](#[gordo])
+- [Gordo](#gordo)
   - [Basics](#basics)
   - [Concepts & Visualizations](#concepts-&-visualizations)
     - [The General Linear Model (GLM)](#the-general-linear-model-(glm))
@@ -125,18 +125,18 @@ The event data file is stored in the same folder as the fMRI and e-phys data.
 ### Session Files
 The session files are also CSV files. However, they are not located together with the fMRI and e-phys data. They are 
 the glue that ties different scans and subjects together and provides additional information about the experiment.
-The core paramters (columns) in the CSV file are as follows:
+The core parameters (columns) in the CSV file are as follows:
 
-| Parameter     | Description                                                                                                                 |
-|---------------|-----------------------------------------------------------------------------------------------------------------------------|
-| func_file     | Filename and path relative to the subject folder that contains the functional imaging file (nifti file wirth EPI sequence)  |
-| event_file    | Filename and path relative to the subject folder that contains the event file                                               |
-| signal_file   | Filename and path relative to the subject folder that contains the electrophysiological data (.h5 file)                     |
-| info_file     | Filename and path relative to the subject folder that contains the metadata file (csv file)                                 |
-| stimulation   | For information only: Describes the stimulation paradigm e.g. (4x2)x64, (blank x stim) x repeat                             |
-| configuration | For information only: Describes additional experimental configurations. e.g. stimulus intensity                             |
-| stim_site     | For information only: Describes the site of stimulation e.g. left anterior insular in case of direct electrical simulation  |
-| stimulus      | For information only: Describes additional stimulus parameters e.g. current used for direct electrical stimulation          |
+| Parameter     | Description                                                                                                                |
+|---------------|----------------------------------------------------------------------------------------------------------------------------|
+| func_file     | Filename and path relative to the subject folder that contains the functional imaging file (nifti file wirth EPI sequence) |
+| event_file    | Filename and path relative to the subject folder that contains the event file                                              |
+| signal_file   | Filename and path relative to the subject folder that contains the electro-physiological data (.h5 file)                   |
+| info_file     | Filename and path relative to the subject folder that contains the metadata file (csv file)                                |
+| stimulation   | For information only: Describes the stimulation paradigm e.g. (4x2)x64, (blank x stim) x repeat                            |
+| configuration | For information only: Describes additional experimental configurations. e.g. stimulus intensity                            |
+| stim_site     | For information only: Describes the site of stimulation e.g. left anterior insular in case of direct electrical simulation |
+| stimulus      | For information only: Describes additional stimulus parameters e.g. current used for direct electrical stimulation         |
 
 ## Gordo
 ![Gordo in space](/images/gordo.png "Gordo in space")
@@ -252,7 +252,7 @@ Here's a breakdown of the components of a typical design matrix:
 For example, if an experiment involves presenting visual stimuli of faces and houses, there would be two columns 
 in the design matrix, one for faces and one for houses.
 2. **Rows**: Each row corresponds to a time point or sample in the fMRI data. 
-Typically, the fMRI data is divided into small time intervals called time bins or volumes. 
+Typically, the fMRI data is divided into small-time intervals called time bins or volumes. 
 Each row in the design matrix represents the expected neural activity for each condition at each time bin.
 3. **Values**: The values in the matrix represent the expected response of each voxel in the brain for each 
 condition at each time point. These values are typically derived from a hypothesized model of the 
@@ -421,8 +421,8 @@ bru2nifti.convert_2_nifti()
 ```
 
 #### Matlab files to HDF5
-Electro-physiological data that is acquired parallel to fMRI data contains large artifacts. Typically this data was
-cleaned with a default Matlab toolbox from the AGLO lab. Therefore the output format is a .mat file. To enable  working
+Electro-physiological data that is acquired parallel to fMRI data contains large artifacts. Typically, this data was
+cleaned with a default Matlab toolbox from the AGLO lab. Therefore, the output format is a .mat file. To enable  working
 with this cleaned data in Python the [Zaius](#zaius) module provides the _ConvertMatFile_ class which converts these
 Matlab files into the HDF5 format.
 
@@ -438,5 +438,31 @@ converter = ConvertMatFile(mat_file_folder, target_folder)
 converter.convert()
 ```
 
+In the current version of this code base a second option exists to convert the .mat files to the HDF5 standard. 
+This option uses Matlab instead of Python and can be found in the Zaius Matlab folder. The usage, in its simplest form,
+is as follows:
+```Matlab
+targetFolder = 'C:\data\converted';
+matFile = 'C:\data\k07ef1_0001_cln.mat';
+
+z = Zaius(matFile, targetFolder, 'dataType', 'double');
+z.runConversion
+```
+
+**Note**: The Matlab option will be removed in future releases to streamline the functionalities towards Python and
+to prevent inconsistencies between the two options.
+
+#### ADFX files to HDF5
+If electro-physiological- and control signals (e.g. TTL triggers) were recorded in the ADF(X) format they can be 
+converted to HDF5 files with the Zaius Matlab code. 
+The usage, in its simplest form, is as follows:
+
+```Matlab
+targetFolder = 'C:\data\converted';
+adfxFile = 'C:\data\CM033zJ1_071.adfx';
+
+z = Zaius(adfxFile, targetFolder, 'dataType', 'int16');
+z.runConversion
+```
+
 #### DGZ files to csv
-#### ADFX files to HDF5 

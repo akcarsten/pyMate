@@ -1,5 +1,3 @@
-# Dev folders and files
-
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -112,7 +110,6 @@ venv.bak/
 # mkdocs documentation
 /site
 
-/old
 
 # mypy
 .mypy_cache/
@@ -135,3 +132,5 @@ dmypy.json
 /visualization
 /Zaius/dg_read/PCWIN64/64-bit/dll_x64/demo/testzlib.exe
 /Zaius/testing.m
+*.asv
+*.bak

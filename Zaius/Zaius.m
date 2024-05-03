@@ -376,6 +376,7 @@ classdef Zaius < handle
                 h5writeatt(obj.targetFilename,'/', parameterName, obj.header.(parameterName));
 
             end
+            
         end
 
         function [] = saveCsv(obj, csvData, varargin)

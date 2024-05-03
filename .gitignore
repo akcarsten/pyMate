@@ -129,10 +129,9 @@ dmypy.json
 *.bmp
 *.ai
 
-# Development files
-test*.*
-
-# Data folders
+# Data folders and other stuff
 /atomsea
 /background
 /visualization
+/Zaius/dg_read/PCWIN64/64-bit/dll_x64/demo/testzlib.exe
+/Zaius/testing.m

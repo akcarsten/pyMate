@@ -2,6 +2,7 @@ classdef Zaius < handle
     % Zaius - A class for converting raw data from the AGLo lab.
 
     properties
+
         sourceFilename
         targetFolder
         targetFilename
@@ -12,6 +13,7 @@ classdef Zaius < handle
         dgzParameter
         dgzMetaInfo
         dgzEventInfo
+
     end
 
     methods
@@ -49,6 +51,30 @@ classdef Zaius < handle
             obj.targetFolder = p.Results.targetFolder;
             obj.overwrite = true;
             obj.dataType = p.Results.dataType;
+
+        end
+
+        function [] = createFolder(obj)
+            % createFolder - Creates the target folder if it does not exist.
+            %
+            %   createFolder(obj) checks if the target folder specified in the Zaius
+            %   object exists. If the folder does not exist, it creates the folder
+            %   using the mkdir function.
+            %
+            %   Input argument:
+            %   - obj: Zaius object.
+            %
+            %   Example:
+            %       z = Zaius('inputfile.mat', 'outputfolder');
+            %       z.createFolder();
+            %
+            %   See also:
+            %       exist, mkdir
+            %
+
+            if ~exist(obj.targetFolder, 'dir')
+                mkdir(obj.targetFolder)
+            end
 
         end
 
@@ -353,9 +379,7 @@ classdef Zaius < handle
             %       z.saveH5();
             %
 
-            if ~exist(obj.targetFolder, 'dir')
-                mkdir(obj.targetFolder)
-            end
+            obj.createFolder
 
             if exist(obj.targetFilename, 'file') == 2 && obj.overwrite
                 disp('Target file already exists. Overwriting the old file now.')
@@ -376,7 +400,7 @@ classdef Zaius < handle
                 h5writeatt(obj.targetFilename,'/', parameterName, obj.header.(parameterName));
 
             end
-            
+
         end
 
         function [] = saveCsv(obj, csvData, varargin)
@@ -402,6 +426,8 @@ classdef Zaius < handle
             p = inputParser;
             addParameter(p, 'WriteVariableNames', true, @islogical);
             parse(p, varargin{:});
+
+            obj.createFolder
 
             writetable(csvData, obj.targetFilename, 'WriteVariableNames', p.Results.WriteVariableNames);
 
@@ -489,5 +515,7 @@ classdef Zaius < handle
             obj.verifyResult
 
         end
+    
     end
+    
 end
